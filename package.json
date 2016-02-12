@@ -1,0 +1,61 @@
+{
+  "name": "generate-generator",
+  "description": "Generate a generate generator.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/generate/generate-generator",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "generate/generate-generator",
+  "bugs": {
+    "url": "https://github.com/generate/generate-generator/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "generator.js"
+  ],
+  "main": "generator.js",
+  "preferGlobal": true,
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "condense-newlines": "^0.2.1",
+    "extend-shallow": "^2.0.1",
+    "has-glob": "^0.1.1",
+    "matched": "^0.4.1"
+  },
+  "devDependencies": {
+    "gulp-format-md": "^0.1.9"
+  },
+  "keywords": [
+    "generate",
+    "generator",
+    "verb"
+  ],
+  "lintDeps": {
+    "ignore": ["templates"]
+  },
+  "verb": {
+    "toc": false,
+    "layout": "global",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": [
+        "generate"
+      ]
+    },
+    "lint": {
+      "reflinks": true
+    },
+    "reflinks": [
+      "verb"
+    ]
+  }
+}
