@@ -12,10 +12,9 @@ Generate a generate generator project, complete with unit tests.
   * [Running tasks](#running-tasks)
 - [Generated files](#generated-files)
 - [Tasks](#tasks)
-- [Examples](#examples)
-  * [Running multiple generators](#running-multiple-generators)
-    + [generate-install](#generate-install)
-    + [generate-dest](#generate-dest)
+- [Running multiple generators](#running-multiple-generators)
+  * [generate-install](#generate-install)
+  * [generate-dest](#generate-dest)
 - [API usage](#api-usage)
   * [Install locally](#install-locally)
   * [Register as a plugin](#register-as-a-plugin)
@@ -206,13 +205,11 @@ Visit Generate's [documentation for tasks](https://github.com/generate/generate/
 <br>
 <br>
 
-## Examples
-
-### Running multiple generators
+## Running multiple generators
 
 Generate supports running multiple generators at once. Here are some examples of other generators that work well with `generate-generator`.
 
-#### generate-install
+### generate-install
 
 Run [generate-install](https://github.com/generate/generate-install) **after** this generator to prompt to install any `dependencies` or `devDependencies` necessary for the generated files.
 
@@ -220,7 +217,7 @@ Run [generate-install](https://github.com/generate/generate-install) **after** t
 
 ![generate-generator generate-install example](https://raw.githubusercontent.com/generate/generate-generator/master/docs/demo-install.gif)
 
-#### generate-dest
+### generate-dest
 
 Run [generate-dest](https://github.com/generate/generate-dest) **before** this generator to prompt for the destination directory to use for generated files.
 
