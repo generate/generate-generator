@@ -73,8 +73,8 @@
     ]
   },
   "verb": {
-    "toc": false,
-    "layout": "global",
+    "toc": true,
+    "layout": "common-minimal",
     "tasks": [
       "readme"
     ],
