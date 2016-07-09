@@ -10,7 +10,8 @@ Generate a generate generator project, complete with unit tests.
   * [Running generate-generator](#running-generate-generator)
   * [Help](#help)
   * [Running tasks](#running-tasks)
-- [All available tasks](#all-available-tasks)
+- [Generated files](#generated-files)
+- [Tasks](#tasks)
 - [Examples](#examples)
   * [Running multiple generators](#running-multiple-generators)
     + [generate-install](#generate-install)
@@ -89,7 +90,7 @@ Running `$ gen generator` will run the generator's [default task](#default), whi
 
 1. prompt you for any information that's missing
 2. render templates using your answers
-3. write the rendered files to the current working directory
+3. write the [rendered files](#generated) to the current working directory, or [specified directory](#customization)
 
 **What you should see in the terminal**
 
@@ -136,19 +137,19 @@ If a task is not explicitly passed Generate's CLI will run the `default` task.
 <br>
 <br>
 
-## All available tasks
+## Generated files
 
-**Common files**
+The default task generates the following files:
 
-All of the tasks include the following files, unless specified otherwise:
+* `.editorconfig`
+* `.eslintrc.json`
+* `.gitattributes`
+* `.gitignore`
+* `.travis.yml`
+* `package.json`
+* `LICENSE`
 
-* `editorconfig`
-* `eslint`
-* `gitattributes`
-* `gitignore`
-* `travis`
-* `package`
-* `license`
+## Tasks
 
 ### [default](index.js#L25)
 
