@@ -1,9 +1,12 @@
+---
+rename:
+  basename: index.js
+---
 'use strict';
-
-module.exports = function(gen, base) {
-  gen.task('<%= alias %>', function(cb) {
+<% var alias = strip("generate-", project.name) %>
+module.exports = function(app) {
+  app.task('<%= strip("generate-", project.name) %>', function(cb) {
     cb();
   });
-
-  gen.task('default', ['<%= alias %>']);
+  app.task('default', ['<%= strip("generate-", project.name) %>']);
 };

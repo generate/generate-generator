@@ -10,10 +10,11 @@
   },
   "license": "MIT",
   "files": [
-    "generator.js"
+    "index.js",
+    "LICENSE",
+    "templates"
   ],
-  "main": "generator.js",
-  "preferGlobal": true,
+  "main": "index.js",
   "engines": {
     "node": ">=0.10.0"
   },
@@ -21,21 +22,55 @@
     "test": "mocha"
   },
   "dependencies": {
-    "condense-newlines": "^0.2.1",
-    "extend-shallow": "^2.0.1",
-    "has-glob": "^0.1.1",
-    "matched": "^0.4.1"
+    "generate-project": "^0.1.4",
+    "is-valid-app": "^0.2.0"
   },
   "devDependencies": {
-    "gulp-format-md": "^0.1.9"
+    "delete": "^0.3.2",
+    "generate": "^0.8.3",
+    "gulp-format-md": "^0.1.9",
+    "mocha": "^2.5.3",
+    "npm-install-global": "^0.1.2",
+    "verb-generate-readme": "^0.1.21"
   },
   "keywords": [
+    "boilerplate",
+    "build",
+    "cli",
+    "cli-app",
+    "command-line",
+    "create",
+    "dev",
+    "development",
+    "framework",
+    "front",
+    "frontend",
     "generate",
+    "generate-generator",
+    "generate-plugin",
+    "generategenerator",
+    "generateplugin",
     "generator",
-    "verb"
+    "init",
+    "initialize",
+    "new",
+    "plugin",
+    "project",
+    "projects",
+    "scaffold",
+    "scaffolder",
+    "scaffolding",
+    "template",
+    "templates",
+    "verb",
+    "webapp",
+    "yeoman",
+    "yo"
   ],
   "lintDeps": {
-    "ignore": ["templates"]
+    "ignore": [
+      "templates"
+    ]
   },
   "verb": {
     "toc": false,
@@ -55,7 +90,14 @@
       "reflinks": true
     },
     "reflinks": [
-      "verb"
+      "assemble",
+      "base",
+      "generate",
+      "generate-dest",
+      "generate-install",
+      "gulp",
+      "verb",
+      "verb-readme-generator"
     ]
   }
 }
