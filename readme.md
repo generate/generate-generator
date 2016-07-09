@@ -1,6 +1,6 @@
 # generate-generator [![NPM version](https://img.shields.io/npm/v/generate-generator.svg?style=flat)](https://www.npmjs.com/package/generate-generator) [![NPM downloads](https://img.shields.io/npm/dm/generate-generator.svg?style=flat)](https://npmjs.org/package/generate-generator) [![Build Status](https://img.shields.io/travis/generate/generate-generator.svg?style=flat)](https://travis-ci.org/generate/generate-generator)
 
-Generate a generate generator.
+Generate a generate generator project, complete with unit tests.
 
 ## Install
 
@@ -129,14 +129,54 @@ All of the tasks include the following files, unless specified otherwise:
 * `package`
 * `license`
 
-### [generator](index.js#L25)
+### [default](index.js#L25)
 
-Scaffold out a [generate](https://github.com/generate/generate) generator project.
+Scaffold out a [generate](https://github.com/generate/generate) generator project. Alias for the [generator](#generator) task, to allow running the generator with the following command:
 
 **Example**
 
 ```sh
 $ gen generator
+```
+
+### [generator](index.js#L37)
+
+Scaffold out a [generate](https://github.com/generate/generate) generator project. Also aliased as the [default](#default) task.
+
+**Example**
+
+```sh
+$ gen generator:generator
+```
+
+### [file](index.js#L49)
+
+Write a `generator.js` file to the current working directory.
+
+**Example**
+
+```sh
+$ gen generator:file
+```
+
+### [test](index.js#L62)
+
+Write a `test.js` file to the current working directory, with unit tests for a [generate](https://github.com/generate/generate) generator.
+
+**Example**
+
+```sh
+$ gen generator:test
+```
+
+### [verb](index.js#L75)
+
+Write a `.verb.md` readme template to the current working directory, with the information and sections recommended for Generate a generator.
+
+**Example**
+
+```sh
+$ gen generator:verb
 ```
 
 Visit Generate's [documentation for tasks](https://github.com/generate/generate/blob/master/docs/tasks.md).
@@ -145,18 +185,6 @@ Visit Generate's [documentation for tasks](https://github.com/generate/generate/
 <br>
 
 ## Examples
-
-### project:min
-
-Example of running the [project:minimal](#minimal) task.
-
-![generate-generator minimal project example](https://raw.githubusercontent.com/generate/generate-generator/master/docs/demo-minimal.gif)
-
-### project:gulp-plugin
-
-Example of running the [project:gulp-plugin](#gulp-plugin) task.
-
-![generate-generator gulp plugin project example](https://raw.githubusercontent.com/generate/generate-generator/master/docs/demo-gulp-plugin.gif)
 
 ### Running multiple generators
 

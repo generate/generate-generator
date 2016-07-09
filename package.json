@@ -1,6 +1,6 @@
 {
   "name": "generate-generator",
-  "description": "Generate a generate generator.",
+  "description": "Generate a generate generator project, complete with unit tests.",
   "version": "0.1.0",
   "homepage": "https://github.com/generate/generate-generator",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
