@@ -72,12 +72,12 @@ describe('<%= ask("project.name") %>', function() {
 
     it('should run the `default` task with .build', function(cb) {
       app.use(generator);
-      app.build('default', exists(fixtures('fixture.txt'), cb));
+      app.build('default', exists(fixtures('text.txt'), cb));
     });
 
     it('should run the `default` task with .generate', function(cb) {
       app.use(generator);
-      app.generate('default', exists(fixtures('fixture.txt'), cb));
+      app.generate('default', exists(fixtures('text.txt'), cb));
     });
   });
 
@@ -85,12 +85,12 @@ describe('<%= ask("project.name") %>', function() {
     describe('generator (CLI)', function() {
       it('should run the default task using the `<%= ask("project.name") %>` name', function(cb) {
         app.use(generator);
-        app.generate('<%= ask("project.name") %>', exists(fixtures('fixture.txt'), cb));
+        app.generate('<%= ask("project.name") %>', exists(fixtures('text.txt'), cb));
       });
 
       it('should run the default task using the `generator` generator alias', function(cb) {
         app.use(generator);
-        app.generate('generator', exists(fixtures('fixture.txt'), cb));
+        app.generate('generator', exists(fixtures('text.txt'), cb));
       });
     });
   }
@@ -98,17 +98,17 @@ describe('<%= ask("project.name") %>', function() {
   describe('generator (API)', function() {
     it('should run the default task on the generator', function(cb) {
       app.register('generator', generator);
-      app.generate('generator', exists(fixtures('fixture.txt'), cb));
+      app.generate('generator', exists(fixtures('text.txt'), cb));
     });
 
     it('should run the `<%= strip("generate-", name) %>` task', function(cb) {
       app.register('generator', generator);
-      app.generate('generator:<%= strip("generate-", name) %>', exists(fixtures('fixture.txt'), cb));
+      app.generate('generator:<%= strip("generate-", name) %>', exists(fixtures('text.txt'), cb));
     });
 
     it('should run the `default` task when defined explicitly', function(cb) {
       app.register('generator', generator);
-      app.generate('generator:default', exists(fixtures('fixture.txt'), cb));
+      app.generate('generator:default', exists(fixtures('text.txt'), cb));
     });
   });
 
@@ -117,28 +117,28 @@ describe('<%= ask("project.name") %>', function() {
       app.register('foo', function(foo) {
         foo.register('generator', generator);
       });
-      app.generate('foo.generator', exists(fixtures('fixture.txt'), cb));
+      app.generate('foo.generator', exists(fixtures('text.txt'), cb));
     });
 
     it('should run the `default` task by default', function(cb) {
       app.register('foo', function(foo) {
         foo.register('generator', generator);
       });
-      app.generate('foo.generator', exists(fixtures('fixture.txt'), cb));
+      app.generate('foo.generator', exists(fixtures('text.txt'), cb));
     });
 
     it('should run the `generator:default` task when defined explicitly', function(cb) {
       app.register('foo', function(foo) {
         foo.register('generator', generator);
       });
-      app.generate('foo.generator:default', exists(fixtures('fixture.txt'), cb));
+      app.generate('foo.generator:default', exists(fixtures('text.txt'), cb));
     });
 
     it('should run the `generator:<%= strip("generate-", name) %>` task', function(cb) {
       app.register('foo', function(foo) {
         foo.register('generator', generator);
       });
-      app.generate('foo.generator:<%= strip("generate-", name) %>', exists(fixtures('fixture.txt'), cb));
+      app.generate('foo.generator:<%= strip("generate-", name) %>', exists(fixtures('text.txt'), cb));
     });
 
     it('should work with nested sub-generators', function(cb) {
@@ -147,7 +147,7 @@ describe('<%= ask("project.name") %>', function() {
         .register('bar', generator)
         .register('baz', generator)
 
-      app.generate('foo.bar.baz', exists(fixtures('fixture.txt'), cb));
+      app.generate('foo.bar.baz', exists(fixtures('text.txt'), cb));
     });
   });
 });
