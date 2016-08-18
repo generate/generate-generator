@@ -1,6 +1,8 @@
 ---
+rename:
+  basename: 'generator.js'
 install:
-  dependencies: ['generate-defaults', 'is-valid-app']
+  dependencies: ['generate-project', 'is-valid-app']
 ---
 'use strict';
 
@@ -13,7 +15,7 @@ module.exports = function(app) {
    * Plugins
    */
 
-  app.use(require('generate-defaults'));
+  app.use(require('generate-project'));
 
   /**
    * Scaffold out a(n) <%= alias %> project. Also aliased as the [default](#default) task.

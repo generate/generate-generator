@@ -10,16 +10,15 @@ var del = require('delete');
 var generator = require('..');
 var app;
 
-var cwd = path.resolve.bind(path, __dirname, 'actual');
+var actual = path.resolve.bind(path, __dirname, 'actual');
 
 function exists(name, cb) {
   return function(err) {
     if (err) return cb(err);
-    var filepath = cwd(name);
+    var filepath = actual(name);
     fs.stat(filepath, function(err, stat) {
       if (err) return cb(err);
-      assert(stat);
-      del(path.dirname(filepath), cb);
+      del(actual(), cb);
     });
   };
 }
@@ -35,24 +34,12 @@ describe('plugins', function() {
 
   beforeEach(function() {
     app = generate({silent: true});
-    app.cwd = cwd();
-    app.option('dest', cwd());
+    app.cwd = actual();
+    app.option('dest', actual());
 
     // pre-populate template data to avoid prompts from `ask` helper
     app.option('askWhen', 'not-answered');
-    app.data({
-      author: {
-        name: 'Jon Schlinkert',
-        username: 'jonschlnkert',
-        url: 'https://github.com/jonschlinkert'
-      },
-      basename: 'LICENSE',
-      project: {
-        name: 'foo',
-        description: 'bar',
-        version: '0.1.0'
-      }
-    });
+    app.data(require('verb-repo-data'));
   });
 
   describe('editorconfig', function() {
@@ -67,27 +54,27 @@ describe('plugins', function() {
     });
   });
 
-  describe('eslint', function() {
+  describe('eslintrc', function() {
     it('should run the `eslint` task with .build', function(cb) {
       app.use(generator);
-      app.build('eslint', exists('.eslintrc.json', cb));
+      app.build('eslintrc', exists('.eslintrc.json', cb));
     });
 
     it('should run the `eslint` task with .generate', function(cb) {
       app.use(generator);
-      app.generate('eslint', exists('.eslintrc.json', cb));
+      app.generate('eslintrc', exists('.eslintrc.json', cb));
     });
   });
 
   describe('license', function() {
     it('should run the `license` task with .build', function(cb) {
       app.use(generator);
-      app.build('license', exists('LICENSE', cb));
+      app.build('license-mit', exists('LICENSE', cb));
     });
 
     it('should run the `license` task with .generate', function(cb) {
       app.use(generator);
-      app.generate('license', exists('LICENSE', cb));
+      app.generate('license:mit', exists('LICENSE', cb));
     });
   });
 

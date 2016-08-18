@@ -20,7 +20,7 @@ function exists(name, cb) {
     fs.stat(filepath, function(err, stat) {
       if (err) return cb(err);
       assert(stat);
-      del(path.dirname(filepath), cb);
+      del(actual(), cb);
     });
   };
 }
@@ -41,19 +41,10 @@ describe('generate-generator', function() {
     app.enable('skip-install');
 
     // pre-populate template data to avoid prompts from `ask` helper
-    app.base.option('askWhen', 'not-answered');
-    app.base.data({
-      author: {
-        name: 'Jon Schlinkert',
-        username: 'jonschlnkert',
-        url: 'https://github.com/jonschlinkert'
-      },
-      project: {
-        name: 'foo',
-        description: 'bar',
-        version: '0.1.0'
-      }
-    });
+    app.option('askWhen', 'not-answered');
+    app.option('prompt', false);
+    app.data(require('verb-repo-data'));
+    app.data('testFile', 'foo.txt');
   });
 
   afterEach(function(cb) {
@@ -156,8 +147,7 @@ describe('generate-generator', function() {
       app
         .register('foo', generator)
         .register('bar', generator)
-        .register('baz', generator)
-
+        .register('baz', generator);
       app.generate('foo.bar.baz', exists('package.json', cb));
     });
   });
