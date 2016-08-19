@@ -163,6 +163,17 @@ module.exports = function(app) {
   });
 
   /**
+   * Middleware for updating the context
+   */
+
+  app.preRender(/package\.json$/, function(file, next) {
+    app.cache.answers = app.cache.answers || {};
+    var desc = (app.cache.answers.description || '').replace(/[.\s]+$/, '');
+    app.cache.answers.description = desc + `. Use from the command line when Generate's CLI is installed globally, or use as a plugin or sub-generator in your own generator.`
+    next();
+  });
+
+  /**
    * Don't ask the same questions more than once
    */
 
